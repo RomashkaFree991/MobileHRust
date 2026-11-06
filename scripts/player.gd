@@ -32,6 +32,9 @@ var crouched := false
 var collider: CollisionShape3D
 var third_person := false
 var avatar
+var legs
+const LEGS_BACK := 0.14
+const STEP_H := 0.5
 var mouse_look_enabled := true
 var last_mouse_position := Vector2.ZERO
 var has_mouse_position := false
@@ -73,15 +76,25 @@ func _ready() -> void:
 	avatar.rotation.y = PI
 	avatar.visible = false
 	avatar.animation_player.active = false
+	# Legs-only body: visible when the camera looks down in first person.
+	legs = load("res://scripts/avatar.gd").new()
+	add_child(legs)
+	legs.setup(true)
+	legs.rotation.y = PI
+	legs.position = Vector3(0.0, 0.0, LEGS_BACK)
+	for gi in legs.find_children("*", "GeometryInstance3D", true, false):
+		gi.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 
 
 func toggle_view() -> void:
 	third_person = not third_person
 	avatar.visible = third_person
 	avatar.animation_player.active = third_person
+	legs.visible = not third_person
+	legs.animation_player.active = not third_person
 	wm.visible = not third_person
 	wm.aim_toggle = false
-	cam.position = Vector3(0, 0, 3.0) if third_person else Vector3.ZERO
+	cam.position = Vector3(0.45, 0.1, 3.0) if third_person else Vector3.ZERO
 
 
 func add_look(rel: Vector2, sens: float) -> void:
@@ -98,6 +111,7 @@ func consume_look_delta() -> Vector2:
 
 func add_recoil(pitch_deg: float, yaw_deg: float) -> void:
 	_recoil += Vector2(deg_to_rad(pitch_deg), deg_to_rad(randf_range(-yaw_deg, yaw_deg)))
+	avatar.kick = 1.0
 
 
 func shake(amount: float) -> void:
@@ -147,14 +161,14 @@ func _process(dt: float) -> void:
 	rotation.y = yaw
 	head.rotation.x = pitch
 	if third_person and is_inside_tree():
-		var from: Vector3 = head.global_position
+		var from: Vector3 = head.global_position + head.global_basis.x * 0.45 + head.global_basis.y * 0.1
 		var desired: Vector3 = from + head.global_basis.z * 3.0
 		var q := PhysicsRayQueryParameters3D.create(from, desired, collision_mask, [get_rid()])
 		var hit := get_world_3d().direct_space_state.intersect_ray(q)
 		var dist := 3.0
 		if not hit.is_empty():
 			dist = maxf(0.2, from.distance_to(hit.position) - 0.15)
-		cam.position.z = dist
+		cam.position = Vector3(0.45, 0.1, dist)
 	if _shake > 0.0:
 		_shake = move_toward(_shake, 0.0, dt * 4.0)
 		var s := _shake * _shake * 0.012
@@ -173,6 +187,44 @@ func _can_stand() -> bool:
 	q.collision_mask = collision_mask
 	q.exclude = [get_rid()]
 	return get_world_3d().direct_space_state.intersect_shape(q, 1).is_empty()
+
+
+func _update_avatar_state() -> void:
+	var kind := ""
+	var key := ""
+	var bm: String = hud.build.mode if (hud != null and hud.build != null) else ""
+	if bm != "":
+		kind = "tool"
+	elif not wm.cur.is_empty():
+		key = str(wm.cur["def"]["key"])
+		kind = {"ak47": "rifle", "semi": "pistol", "revolver": "pistol", "rock": "melee"}.get(key, "melee")
+	avatar.hold(key, kind)
+	avatar.aim_amount = 1.0 if bool(wm.aiming) else 0.0
+	avatar.look_pitch = pitch
+	var rl := 0.0
+	if not wm.cur.is_empty() and str(wm.state) == "reload":
+		rl = clampf(float(wm.state_t) / maxf(0.5, float(wm.cur["def"].get("reload_end", 2.0))), 0.0, 1.0)
+	avatar.reload_t = rl
+
+
+## Walk up low ledges (foundations) without having to jump.
+func _try_step(dt: float) -> void:
+	if not is_on_floor() or crouched:
+		return
+	var hv := Vector3(velocity.x, 0.0, velocity.z)
+	if hv.length() < 0.5:
+		return
+	var motion := hv.normalized() * maxf(0.12, hv.length() * dt + 0.06)
+	if not test_move(global_transform, motion):
+		return
+	var up := Vector3(0.0, STEP_H, 0.0)
+	if test_move(global_transform, up):
+		return
+	var raised := global_transform.translated(up)
+	if test_move(raised, motion):
+		return
+	global_position += up + motion * 0.5
+	velocity.y = 0.0
 
 
 func _physics_process(dt: float) -> void:
@@ -208,7 +260,9 @@ func _physics_process(dt: float) -> void:
 	else:
 		velocity.y -= GRAVITY * dt
 		_fall = maxf(_fall, -velocity.y)
+	_try_step(dt)
 	move_and_slide()
+	apply_floor_snap()
 	var on_floor := is_on_floor()
 	if on_floor and not _was_floor and _fall > 2.5:
 		FX.play2d("footsteps/grass_jump_land_%d.wav" % randi_range(1, 4), -6.0)
@@ -218,7 +272,10 @@ func _physics_process(dt: float) -> void:
 	_was_floor = on_floor
 	var hs := Vector2(velocity.x, velocity.z).length()
 	if third_person:
+		_update_avatar_state()
 		avatar.animate(dt, hs, crouched, on_floor, inp)
+	else:
+		legs.animate(dt, hs, crouched, on_floor, inp)
 	if on_floor and hs > 0.6:
 		_step += hs * dt
 		var stride := 2.2 if sprinting else 1.6

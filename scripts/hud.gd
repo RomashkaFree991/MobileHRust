@@ -94,11 +94,12 @@ class InventoryPanel extends Control:
 	func _init() -> void:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 	func slot_rect(i: int) -> Rect2:
-		if i < 24: return Rect2(425 + (i % 6) * 100, 158 + int(i / 6) * 89, 90, 80)
-		if i < 30: return Rect2(425 + (i - 24) * 100, 565, 90, 80)
-		return Rect2(300 + int((i - 30) % 2) * 53, 150 + int((i - 30) / 2) * 67, 48, 60)
+		if i < 24: return Rect2(425 + (i % 6) * 100, 245 + int(i / 6) * 78, 90, 70)
+		if i < 30: return Rect2(425 + (i - 24) * 100, 590, 90, 70)
+		if i < 37: return Rect2(300 + int((i - 30) % 2) * 53, 150 + int((i - 30) / 2) * 67, 48, 60)
+		return Rect2(425 + (i - 37) * 100, 130, 90, 70)
 	func hit(p: Vector2) -> int:
-		for i in range(37):
+		for i in range(43):
 			if slot_rect(i).has_point(p): return i
 		return -1
 	func _draw() -> void:
@@ -109,24 +110,91 @@ class InventoryPanel extends Control:
 		draw_set_transform(o, 0.0, Vector2(unit, unit))
 		draw_string(font, Vector2(48, 65), "ИНВЕНТАРЬ", HORIZONTAL_ALIGNMENT_LEFT, -1, 29, Color.WHITE)
 		draw_string(font, Vector2(1000, 65), "ЗАКРЫТЬ ✕", HORIZONTAL_ALIGNMENT_LEFT, -1, 22, Color.WHITE)
-		draw_rect(Rect2(48, 100, 330, 430), Color(0.16, 0.17, 0.15, 0.75))
+		draw_rect(Rect2(48, 100, 330, 500), Color(0.16, 0.17, 0.15, 0.75))
 		draw_string(font, Vector2(55, 140), "ПЕРСОНАЖ", HORIZONTAL_ALIGNMENT_LEFT, -1, 19, Color.WHITE)
-		draw_string(font, Vector2(425, 142), "ПРЕДМЕТЫ", HORIZONTAL_ALIGNMENT_LEFT, -1, 23, Color.WHITE)
-		draw_string(font, Vector2(425, 548), "ПОЯС", HORIZONTAL_ALIGNMENT_LEFT, -1, 23, Color.WHITE)
-		for i in range(37):
+		draw_string(font, Vector2(425, 122), "РЮКЗАК", HORIZONTAL_ALIGNMENT_LEFT, -1, 21, Color.WHITE)
+		draw_string(font, Vector2(425, 228), "ПРЕДМЕТЫ", HORIZONTAL_ALIGNMENT_LEFT, -1, 21, Color.WHITE)
+		draw_string(font, Vector2(425, 580), "ПОЯС", HORIZONTAL_ALIGNMENT_LEFT, -1, 21, Color.WHITE)
+		var inv = hud.inventory
+		draw_string(font, Vector2(58, 548), "5.56: %d    Пистолет: %d" % [inv.count_of("rifle_ammo"), inv.count_of("pistol_ammo")], HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color(0.95, 0.85, 0.5))
+		draw_string(font, Vector2(58, 574), "Дерево %d  Камень %d  Металл %d  МВК %d" % [inv.count_of("wood"), inv.count_of("stone"), inv.count_of("metal"), inv.count_of("hqm")], HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color(0.8, 0.8, 0.8))
+		for i in range(43):
 			var r := slot_rect(i)
-			draw_rect(r, Color(0.63, 0.62, 0.50, 0.72) if selected == i else Color(0.39,0.4,0.36,0.55))
-			var item: Dictionary = hud.inventory.slot_get(i)
+			var belt_sel: bool = i == 24 + inv.selected_belt
+			draw_rect(r, Color(0.63, 0.62, 0.50, 0.72) if selected == i else (Color(0.25, 0.45, 0.65, 0.6) if belt_sel else Color(0.39,0.4,0.36,0.55)))
+			var item: Dictionary = inv.slot_get(i)
 			if item.is_empty(): continue
 			var tex: Texture2D = hud.item_icon(item)
 			if tex: draw_texture_rect(tex, r.grow(-5), false)
 			var count: String = hud.item_count(item)
 			if count != "": draw_string(font, r.position + Vector2(7, r.size.y - 5), count, HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color.WHITE)
-		draw_string(font, Vector2(48, 685), "Перетащи предмет или нажми сначала на него, затем на нужную ячейку.", HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color(0.8,0.8,0.8))
+		var hint := "Перетащи предмет или нажми сначала на него, затем на нужную ячейку."
+		if selected >= 0 and not inv.slot_get(selected).is_empty():
+			hint = hud.item_title(inv.slot_get(selected))
+		draw_string(font, Vector2(48, 700), hint, HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color(0.8,0.8,0.8))
+
+
+## Building plan / hammer toolbar: one row of pieces (plan only) and one row of material tiers.
+class BuildBar extends Control:
+	var hud
+	var font: Font
+	const W := 112.0
+	const H := 44.0
+	const G := 6.0
+	func _init() -> void:
+		mouse_filter = Control.MOUSE_FILTER_IGNORE
+	func rows() -> Array:
+		var b = hud.build
+		var out: Array = []
+		if b == null: return out
+		if b.mode == "plan":
+			var r1: Array = []
+			for i in range(b.PIECES.size()):
+				r1.append([b.PIECE_NAMES[b.PIECES[i]], i == b.piece_i, "p%d" % i])
+			out.append(r1)
+		var r2: Array = []
+		for i in range(b.TIERS.size()):
+			r2.append([b.TIER_NAMES[b.TIERS[i]], i == b.tier_i and not b.demolish, "t%d" % i])
+		if b.mode == "hammer":
+			r2.append(["СНЕСТИ", b.demolish, "t%d" % b.TIERS.size()])
+		out.append(r2)
+		return out
+	func _origin(row_count: int, n: int) -> Vector2:
+		return Vector2(0, 0)
+	func layout() -> Array:
+		## [[Rect2, id], ...] in local coordinates (control origin at the bar's top-left)
+		var res: Array = []
+		var rs := rows()
+		for ri in range(rs.size()):
+			var row: Array = rs[ri]
+			var total := row.size() * W + (row.size() - 1) * G
+			var x0 := (size.x - total) * 0.5
+			for ci in range(row.size()):
+				res.append([Rect2(x0 + ci * (W + G), ri * (H + G), W, H), row[ci][2], row[ci][0], row[ci][1]])
+		return res
+	func hit(p: Vector2) -> String:
+		for e in layout():
+			if (e[0] as Rect2).grow(3).has_point(p - position):
+				return e[1]
+		return ""
+	func _draw() -> void:
+		for e in layout():
+			var r: Rect2 = e[0]
+			var on: bool = e[3]
+			draw_rect(r, Color(0.25, 0.52, 0.80, 0.85) if on else Color(0.08, 0.08, 0.08, 0.6))
+			draw_rect(r, Color(1, 1, 1, 0.45 if on else 0.25), false, 2.0)
+			var ts: Vector2 = font.get_string_size(e[2], HORIZONTAL_ALIGNMENT_LEFT, -1, 18)
+			draw_string(font, r.position + Vector2((r.size.x - ts.x) * 0.5, r.size.y * 0.5 + 6.0), e[2], HORIZONTAL_ALIGNMENT_LEFT, -1, 18, Color.WHITE)
 
 
 var player
 var wm
+var build  # building.gd
+var build_bar: BuildBar
+var build_label: Label
+var build_msg_t := 0.0
+var build_ui_blocks_fire := false
+var item_icons := {}
 var inventory_open := false
 var inventory
 var inventory_drag := -1
@@ -193,6 +261,18 @@ func _ready() -> void:
 	root.add_child(inventory_panel)
 	inventory_panel.visible = false
 	_build_portrait()
+	build_bar = BuildBar.new()
+	build_bar.hud = self
+	build_bar.font = font_b
+	build_bar.size = Vector2(640, 100)
+	build_bar.visible = false
+	root.add_child(build_bar)
+	build_label = _label(font_b, 20, Color(1, 0.95, 0.85, 0.95))
+	build_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	build_label.size = Vector2(640, 28)
+	build_label.visible = false
+	for kind in ["wood", "stone", "metal", "hqm", "plan", "hammer"]:
+		item_icons[kind] = _make_item_icon(kind)
 	get_viewport().size_changed.connect(_layout)
 	set_touch_mode(DisplayServer.is_touchscreen_available())
 	_layout()
@@ -460,6 +540,11 @@ func _layout() -> void:
 	_place("inventory", Vector2(75.0, 75.0))
 	_place("view", Vector2(150.0, 75.0))
 	touch_switch.position = Vector2(225.0, 75.0) - touch_switch.size * 0.5
+	if build_bar:
+		var rows_n := 2 if (build and build.mode == "plan") else 1
+		build_bar.size = Vector2(640, rows_n * 50.0)
+		build_bar.position = Vector2((vs.x - 640.0) * 0.5, y0 - 12.0 - rows_n * 50.0)
+		build_label.position = Vector2((vs.x - 640.0) * 0.5, build_bar.position.y - 30.0)
 	if portrait:
 		var u := minf(vs.x / 1280.0, vs.y / 720.0)
 		var o := Vector2((vs.x - 1280.0*u)/2.0, (vs.y - 720.0*u)/2.0)
@@ -514,15 +599,90 @@ func item_icon(item: Dictionary) -> Texture2D:
 		"pistol_ammo": return inventory_panel.icons[1]
 		"weapon": return inventory_panel.icons[2 + int(item["weapon"])]
 		"bandage": return inventory_panel.icons[6]
-	return null
+	return item_icons.get(str(item.get("kind", "")), null)
 
 
 func item_count(item: Dictionary) -> String:
 	if item.get("kind", "") == "weapon":
 		var w: Dictionary = wm.weapons[int(item["weapon"])]
 		return "" if w["def"].get("melee", false) else str(int(w["ammo"]))
+	if str(item.get("kind", "")) in ["plan", "hammer"]: return ""
 	if item.has("count"): return "x%d" % int(item["count"])
 	return ""
+
+
+func item_title(item: Dictionary) -> String:
+	var kind := str(item.get("kind", ""))
+	if kind == "weapon":
+		return str(wm.weapons[int(item["weapon"])]["def"]["name"])
+	if inventory.ITEMS.has(kind):
+		var t: String = inventory.ITEMS[kind]["name"]
+		return t + (" x%d" % int(item["count"]) if item.has("count") and int(item["count"]) > 1 else "")
+	return kind
+
+
+func _make_item_icon(kind: String) -> Texture2D:
+	var n := 64
+	var img := Image.create(n, n, true, Image.FORMAT_RGBA8)
+	img.fill(Color(0, 0, 0, 0))
+	var rect := func(x0: int, y0: int, w: int, h: int, c: Color) -> void:
+		for y in range(maxi(y0, 0), mini(y0 + h, n)):
+			for x in range(maxi(x0, 0), mini(x0 + w, n)):
+				img.set_pixel(x, y, c)
+	var disc := func(cx: float, cy: float, r: float, c: Color) -> void:
+		for y in range(maxi(int(cy - r), 0), mini(int(cy + r) + 1, n)):
+			for x in range(maxi(int(cx - r), 0), mini(int(cx + r) + 1, n)):
+				if Vector2(x - cx, y - cy).length() <= r:
+					var shade := 0.82 + 0.3 * float(cy - y + r) / (2.0 * r)
+					img.set_pixel(x, y, Color(c.r * shade, c.g * shade, c.b * shade, 1.0))
+	match kind:
+		"wood":
+			var c := Color(0.55, 0.36, 0.18)
+			for i in range(3):
+				rect.call(8, 14 + i * 14, 48, 11, c.darkened(0.12 * i))
+				disc.call(56.0, 19.5 + i * 14, 5.5, Color(0.8, 0.62, 0.4))
+		"stone":
+			disc.call(24, 38, 17, Color(0.52, 0.52, 0.5))
+			disc.call(42, 30, 13, Color(0.62, 0.62, 0.6))
+			disc.call(36, 46, 11, Color(0.45, 0.45, 0.43))
+		"metal":
+			for i in range(5):
+				var cx := 16.0 + (i % 3) * 16.0
+				var cy := 22.0 + (i / 3) * 20.0
+				disc.call(cx, cy, 9, Color(0.58, 0.64, 0.72))
+		"hqm":
+			for i in range(3):
+				rect.call(10, 12 + i * 15, 44, 11, Color(0.34 + 0.05 * i, 0.38 + 0.05 * i, 0.44 + 0.05 * i))
+		"plan":
+			rect.call(6, 6, 52, 52, Color(0.16, 0.42, 0.7))
+			for k in range(1, 5):
+				rect.call(6 + k * 10, 6, 1, 52, Color(0.7, 0.85, 1.0, 0.7))
+				rect.call(6, 6 + k * 10, 52, 1, Color(0.7, 0.85, 1.0, 0.7))
+			rect.call(18, 30, 28, 20, Color(1, 1, 1))
+			rect.call(20, 32, 24, 16, Color(0.16, 0.42, 0.7))
+			for k in range(14):
+				rect.call(32 - k * 2 - 1, 30 - k, k * 4 + 3, 1, Color(1, 1, 1))
+		"hammer":
+			for k in range(34):
+				rect.call(12 + k, 50 - k, 5, 5, Color(0.6, 0.42, 0.22))
+			rect.call(26, 8, 30, 16, Color(0.62, 0.64, 0.68))
+			rect.call(26, 8, 30, 4, Color(0.8, 0.82, 0.86))
+	img.generate_mipmaps()
+	return ImageTexture.create_from_image(img)
+
+
+func on_build_mode(m: String) -> void:
+	build_bar.visible = m != ""
+	build_label.visible = m != ""
+	if m == "":
+		build_ui_blocks_fire = false
+	build_bar.queue_redraw()
+	_layout()
+
+
+func show_build_message(t: String) -> void:
+	if wm:
+		wm.show_message(t, 2.0)
 
 
 func _inventory_position(pos: Vector2) -> Vector2:
@@ -591,6 +751,28 @@ func _input(event: InputEvent) -> void:
 		set_touch_mode(not touch_mode)
 		get_viewport().set_input_as_handled()
 		return
+	if build_bar and build_bar.visible:
+		var pos := Vector2(-1000, -1000)
+		var press := false
+		if event is InputEventScreenTouch and event.pressed:
+			pos = event.position
+			press = true
+		elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+			pos = event.position
+			press = true
+		build_ui_blocks_fire = false
+		if event is InputEventMouseMotion or event is InputEventMouseButton:
+			build_ui_blocks_fire = Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and build_bar.hit(get_viewport().get_mouse_position()) != ""
+		if press:
+			var id: String = build_bar.hit(pos)
+			if id != "" and build:
+				if id.begins_with("p"):
+					build.set_piece(int(id.substr(1)))
+				else:
+					build.set_tier(int(id.substr(1)))
+				build_bar.queue_redraw()
+				get_viewport().set_input_as_handled()
+				return
 	if not touch_mode:
 		return
 	if event is InputEventScreenTouch:
@@ -676,13 +858,20 @@ func _process(dt: float) -> void:
 		inventory_panel.queue_redraw()
 	for i in range(slots.size()):
 		var slot: Dictionary = slots[i]
-		var item: Dictionary = inventory.belt[i]
+		var item: Dictionary = inventory.belt_item(i)
 		slot["bg"].self_modulate = C_SLOT_SEL if i == inventory.selected_belt else C_SLOT
 		var icon: TextureRect = slot["icon"]
 		icon.texture = item_icon(item)
 		slot["cnt"].text = item_count(item)
 		slot["cond"].visible = item.get("kind", "") == "weapon"
 	ammo_label.text = wm.ammo_text()
+	if build and build.mode != "":
+		build_bar.queue_redraw()
+		build_label.text = build.status
+		ammo_label.text = ""
+		if build.mode == "plan":
+			var t: String = build.tier()
+			ammo_label.text = "%s: %d" % [build.TIER_NAMES[t], inventory.count_of(t)]
 	crosshair.visible = not bool(wm.aiming)
 	if touch_mode:
 		var c: TouchBtn = btn["crouch"]

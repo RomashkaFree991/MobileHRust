@@ -223,7 +223,7 @@ var last_hit := ""  # debug/autotest: "<surface>@<distance>"
 func _arms_material(src: StandardMaterial3D) -> StandardMaterial3D:
 	if _arms_mat == null:
 		_arms_mat = src.duplicate()
-		_arms_mat.albedo_color = Color(0.62, 0.46, 0.37)
+		_arms_mat.albedo_color = load("res://scripts/avatar.gd").skin_color()
 		_arms_mat.metallic = 0.0
 		_arms_mat.roughness = 0.62
 		_arms_mat.metallic_specular = 0.35

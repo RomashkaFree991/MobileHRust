@@ -103,7 +103,7 @@ func _ready() -> void:
 	_spawn_player()
 	_build_audio()
 	# compile particle shaders early (effects are spawned under the ground in front of the camera)
-	FX.prewarm(Transform3D(Basis(), Vector3(0.0, -2.0, -3.0)))
+	FX.prewarm.call_deferred(Transform3D(Basis(), Vector3(0.0, -2.0, -3.0)))
 	if "--autotest" in OS.get_cmdline_user_args():
 		var t = load("res://scripts/autotest.gd").new()
 		t.name = "AutoTest"
@@ -156,6 +156,8 @@ func _setup_input() -> void:
 	for i in range(6):
 		_add_action("slot_%d" % (i + 1), [_key(keys[i])])
 	_add_action("toggle_touch", [_key(KEY_T)])
+	_add_action("build_piece", [_key(KEY_E)])
+	_add_action("build_tier", [_key(KEY_G)])
 	_add_action("ui_release_mouse", [_key(KEY_ESCAPE)])
 
 
@@ -366,6 +368,13 @@ func _spawn_player() -> void:
 	hud.wm = player.wm
 	player.hud = hud
 	add_child(hud)
+	var building = load("res://scripts/building.gd").new()
+	building.player = player
+	building.hud = hud
+	building.inventory = hud.inventory
+	hud.build = building
+	hud.inventory.build = building
+	add_child(building)
 
 
 func _build_audio() -> void:
