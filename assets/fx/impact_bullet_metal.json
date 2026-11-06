@@ -1,0 +1,446 @@
+{
+ "name": "impact_bullet_metal",
+ "source": "bundled/prefabs/fx/impacts/bullet/metal/metal1.json",
+ "duration": 2.0,
+ "emitters": [
+  {
+   "name": "single_spark",
+   "pos": [
+    0.0,
+    0.055,
+    0.0
+   ],
+   "rot": [
+    -0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    0.05,
+    0.07
+   ],
+   "speed": [
+    0.0,
+    0.0
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 25.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.01
+   },
+   "size": [
+    0.04,
+    0.08
+   ],
+   "aspect": 1.0,
+   "gravity": 0.0,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 2,
+   "explosiveness": 1.0,
+   "color_min": [
+    0.1176,
+    0.102,
+    0.0,
+    1.8352
+   ],
+   "color_max": [
+    0.1176,
+    0.102,
+    0.0,
+    1.8352
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     1.0,
+     5.3407
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     0.0745,
+     0.0745,
+     0.0745,
+     1.0
+    ],
+    [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    0.0,
+    360.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    1,
+    1
+   ],
+   "anim": "over_life",
+   "blend": "add",
+   "shader": "Particles/Additive (HDR)",
+   "texture": "res://assets/fx/textures/sparks-1_row0.png",
+   "mode": "billboard",
+   "mesh": null,
+   "length_scale": 2.0,
+   "velocity_scale": 0.0,
+   "material": "sparks1"
+  },
+  {
+   "name": "vertical_sparks",
+   "pos": [
+    0.0,
+    0.032,
+    0.0
+   ],
+   "rot": [
+    -0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    0.05,
+    0.07
+   ],
+   "speed": [
+    0.02,
+    0.02
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 27.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.01
+   },
+   "size": [
+    0.045,
+    0.06
+   ],
+   "aspect": 1.0,
+   "gravity": 0.0,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 2,
+   "explosiveness": 1.0,
+   "color_min": [
+    1.4432,
+    1.4432,
+    1.4432,
+    0.7989
+   ],
+   "color_max": [
+    1.4432,
+    1.4432,
+    1.4432,
+    0.7989
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     1.0,
+     5.3407
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     0.0745,
+     0.0745,
+     0.0745,
+     1.0
+    ],
+    [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    0.0,
+    360.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    4,
+    1
+   ],
+   "anim": "random_frame",
+   "blend": "add",
+   "shader": "Shader Forge/SuperEmber",
+   "texture": "res://assets/fx/textures/vertical_sparks-1_rot.png",
+   "mode": "stretch",
+   "mesh": null,
+   "length_scale": -1.65,
+   "velocity_scale": -2.0,
+   "material": "vertical_sparks1"
+  },
+  {
+   "name": "dust_particles",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rot": [
+    -0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    0.5,
+    0.7
+   ],
+   "speed": [
+    0.4,
+    1.6
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 25.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.01
+   },
+   "size": [
+    0.5,
+    0.8
+   ],
+   "aspect": 1.0,
+   "gravity": 0.02,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 2,
+   "explosiveness": 1.0,
+   "color_min": [
+    1.6176,
+    1.6176,
+    1.6176,
+    0.2533
+   ],
+   "color_max": [
+    2.0,
+    2.0,
+    2.0,
+    0.2098
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.4534
+    ],
+    [
+     1.0,
+     1.0
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.1706,
+     0.9655,
+     0.9655,
+     0.9655,
+     1.0
+    ],
+    [
+     0.9882,
+     0.8,
+     0.8,
+     0.8,
+     0.0142
+    ],
+    [
+     1.0,
+     0.8,
+     0.8,
+     0.8,
+     0.0
+    ]
+   ],
+   "angle": [
+    -180.0,
+    180.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    8,
+    8
+   ],
+   "anim": "over_life",
+   "blend": "mix",
+   "shader": "Particles/VertexLit Blended Custom",
+   "texture": "res://assets/fx/textures/wispy_smoke-2.png",
+   "mode": "billboard",
+   "mesh": null,
+   "length_scale": 2.0,
+   "velocity_scale": 0.0,
+   "material": "pfx_smoke_whispy_2"
+  },
+  {
+   "name": "spark_particles",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rot": [
+    -0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    2.0,
+    2.0
+   ],
+   "speed": [
+    1.2625,
+    3.0125
+   ],
+   "direction": [
+    0.0,
+    -0.0017,
+    1.0
+   ],
+   "spread": 30.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.05
+   },
+   "size": [
+    0.015,
+    0.045
+   ],
+   "aspect": 1.0,
+   "gravity": 0.95,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 14,
+   "explosiveness": 1.0,
+   "color_min": [
+    2.0,
+    2.0,
+    2.0,
+    2.0
+   ],
+   "color_max": [
+    2.0,
+    1.7648,
+    0.7764,
+    2.0
+   ],
+   "size_curve": null,
+   "color_ramp": null,
+   "angle": [
+    -360.0,
+    360.0
+   ],
+   "angular_velocity": [
+    -180.0,
+    180.0
+   ],
+   "tiles": [
+    4,
+    1
+   ],
+   "anim": "over_life",
+   "blend": "add",
+   "shader": "Particles/Additive (HDR)",
+   "texture": "res://assets/fx/textures/tracers-1_rot.png",
+   "mode": "stretch",
+   "mesh": null,
+   "length_scale": 1.2,
+   "velocity_scale": 0.04,
+   "material": "tracers-1"
+  }
+ ],
+ "lights": []
+}

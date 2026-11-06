@@ -1,0 +1,532 @@
+{
+ "name": "ak_attack",
+ "source": "prefabs/weapons/ak47u/effects/attack.json",
+ "duration": 1.1,
+ "emitters": [
+  {
+   "name": "muzzle_smoke",
+   "pos": [
+    -0.0,
+    0.0,
+    0.25
+   ],
+   "rot": [
+    0.0,
+    -0.707107,
+    0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    0.8,
+    1.1
+   ],
+   "speed": [
+    0.6375,
+    0.8625
+   ],
+   "direction": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "spread": 0.0,
+   "shape": {
+    "type": "box",
+    "extents": [
+     0.16,
+     0.0,
+     0.0
+    ]
+   },
+   "size": [
+    0.5,
+    0.7
+   ],
+   "aspect": 1.0,
+   "gravity": 0.0,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 2.2,
+   "amount": 4,
+   "explosiveness": 1.0,
+   "color_min": [
+    1.3,
+    1.3,
+    1.3,
+    0.0853
+   ],
+   "color_max": [
+    1.3,
+    1.3,
+    1.3,
+    0.2185
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.2846
+    ],
+    [
+     1.0,
+     0.986
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.1353,
+     1.0,
+     1.0,
+     1.0,
+     0.7412
+    ],
+    [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    -360.0,
+    360.0
+   ],
+   "angular_velocity": [
+    -15.0,
+    15.0
+   ],
+   "tiles": [
+    9,
+    1
+   ],
+   "anim": "over_life",
+   "blend": "mix",
+   "shader": "Particles/VertexLit Blended Custom",
+   "texture": "res://assets/fx/textures/wispy-1_row0.png",
+   "mode": "billboard",
+   "mesh": null,
+   "length_scale": 2.0,
+   "velocity_scale": 0.0,
+   "material": "muzzle_fumes3"
+  },
+  {
+   "name": "muzzle_embers",
+   "pos": [
+    0.0,
+    0.0,
+    -0.025
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.025,
+   "lifetime": [
+    0.03,
+    0.06
+   ],
+   "speed": [
+    6.0,
+    9.0
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 2.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.005
+   },
+   "size": [
+    0.001,
+    0.003
+   ],
+   "aspect": 1.0,
+   "gravity": -0.5,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 1.75,
+   "amount": 2,
+   "explosiveness": 1.0,
+   "color_min": [
+    2.0,
+    0.4752,
+    0.087,
+    0.196
+   ],
+   "color_max": [
+    2.0,
+    0.7223,
+    0.087,
+    2.0
+   ],
+   "size_curve": [
+    [
+     0.0,
+     2.0
+    ],
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.1017,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.2857,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.2967,
+     1.0,
+     1.0,
+     1.0,
+     0.9846
+    ],
+    [
+     1.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    0.0,
+    0.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    4,
+    1
+   ],
+   "anim": "random_frame",
+   "blend": "add",
+   "shader": "Particles/Additive (HDR)",
+   "texture": "res://assets/fx/textures/tracers-1_rot.png",
+   "mode": "stretch",
+   "mesh": null,
+   "length_scale": 0.0,
+   "velocity_scale": 0.0075,
+   "material": "muzzle_embers"
+  },
+  {
+   "name": "muzzleflash_billboard",
+   "pos": [
+    -0.0,
+    0.0,
+    0.025
+   ],
+   "rot": [
+    -0.0,
+    -0.707107,
+    -0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": true,
+   "delay": 0.0,
+   "lifetime": [
+    0.05,
+    0.05
+   ],
+   "speed": [
+    0.049,
+    0.0663
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 18.4,
+   "shape": {
+    "type": "point"
+   },
+   "size": [
+    0.04,
+    0.07
+   ],
+   "aspect": 1.0,
+   "gravity": 0.0,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 1,
+   "explosiveness": 1.0,
+   "color_min": [
+    1.6064,
+    0.9083,
+    0.2103,
+    0.749
+   ],
+   "color_max": [
+    1.6064,
+    0.9083,
+    0.2103,
+    1.0
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.6361,
+     4.0
+    ],
+    [
+     1.0,
+     1.8872
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.0946,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.5072,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    0.0,
+    180.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    3,
+    3
+   ],
+   "anim": "over_life_random_start",
+   "blend": "add",
+   "shader": "Particles/Additive (HDR)",
+   "texture": "res://assets/fx/textures/muzzle_flash-front-3x3.png",
+   "mode": "billboard",
+   "mesh": null,
+   "length_scale": 2.0,
+   "velocity_scale": 0.0,
+   "material": "muzzle_flash-front-3x3"
+  },
+  {
+   "name": "muzzleflash_side",
+   "pos": [
+    -0.0,
+    0.0,
+    0.01
+   ],
+   "rot": [
+    0.0,
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": true,
+   "delay": 0.0,
+   "lifetime": [
+    0.05,
+    0.05
+   ],
+   "speed": [
+    0.01,
+    0.01
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 15.4,
+   "shape": {
+    "type": "point"
+   },
+   "size": [
+    0.03,
+    0.04
+   ],
+   "aspect": 1.4286,
+   "gravity": 0.0,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 1,
+   "explosiveness": 1.0,
+   "color_min": [
+    1.6,
+    0.9047,
+    0.2094,
+    1.0
+   ],
+   "color_max": [
+    1.6,
+    0.9047,
+    0.2094,
+    1.0
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.0
+    ],
+    [
+     0.6361,
+     4.0
+    ],
+    [
+     1.0,
+     1.8872
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.0946,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.5072,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    0.0,
+    0.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    4,
+    1
+   ],
+   "anim": "random_frame",
+   "blend": "add",
+   "shader": "Particles/Additive (HDR)",
+   "texture": "res://assets/fx/textures/muzzle_flash-side-1x4_rot.png",
+   "mode": "stretch",
+   "mesh": null,
+   "length_scale": 1.1,
+   "velocity_scale": 0.0,
+   "material": "muzzle_flash-side-1x4"
+  }
+ ],
+ "lights": [
+  {
+   "name": "muzzleflash_lightex",
+   "pos": [
+    -0.25,
+    0.0,
+    -0.0
+   ],
+   "color": [
+    1.0,
+    0.7179,
+    0.1934
+   ],
+   "range": 4.0,
+   "intensity": 1.0,
+   "type": 2
+  }
+ ]
+}

@@ -1,0 +1,338 @@
+{
+ "name": "eject_rifle",
+ "source": "prefabs/weapons/ak47u/effects/eject_rifle_shell.json",
+ "duration": 1.01,
+ "emitters": [
+  {
+   "name": "ejection_smoke",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rot": [
+    0.0,
+    -0.0,
+    0.0,
+    1.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    0.5,
+    0.8
+   ],
+   "speed": [
+    0.5,
+    1.0
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 5.0,
+   "shape": {
+    "type": "point"
+   },
+   "size": [
+    0.25,
+    0.35
+   ],
+   "aspect": 1.0,
+   "gravity": 0.0,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 8.0,
+   "amount": 2,
+   "explosiveness": 1.0,
+   "color_min": [
+    1.3,
+    1.3,
+    1.3,
+    0.041
+   ],
+   "color_max": [
+    1.3,
+    1.3,
+    1.3,
+    0.1331
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.2846
+    ],
+    [
+     1.0,
+     0.986
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.1353,
+     1.0,
+     1.0,
+     1.0,
+     0.7412
+    ],
+    [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    -360.0,
+    360.0
+   ],
+   "angular_velocity": [
+    -15.0,
+    15.0
+   ],
+   "tiles": [
+    9,
+    1
+   ],
+   "anim": "over_life",
+   "blend": "mix",
+   "shader": "Particles/VertexLit Blended Custom",
+   "texture": "res://assets/fx/textures/wispy-1_row0.png",
+   "mode": "billboard",
+   "mesh": null,
+   "length_scale": 2.0,
+   "velocity_scale": 0.0,
+   "material": "muzzle_fumes3"
+  },
+  {
+   "name": "ejection_embers",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rot": [
+    0.0,
+    -0.0,
+    0.0,
+    1.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": true,
+   "delay": 0.01,
+   "lifetime": [
+    0.02,
+    0.045
+   ],
+   "speed": [
+    1.5,
+    2.5
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 10.0,
+   "shape": {
+    "type": "point"
+   },
+   "size": [
+    0.001,
+    0.002
+   ],
+   "aspect": 1.0,
+   "gravity": 2.0,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.75,
+   "amount": 1,
+   "explosiveness": 1.0,
+   "color_min": [
+    2.0,
+    0.4752,
+    0.087,
+    0.196
+   ],
+   "color_max": [
+    2.0,
+    0.7223,
+    0.087,
+    2.0
+   ],
+   "size_curve": [
+    [
+     0.0,
+     2.0
+    ],
+    [
+     1.0,
+     0.0
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.1017,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.2857,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.2967,
+     1.0,
+     1.0,
+     1.0,
+     0.9846
+    ],
+    [
+     1.0,
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    0.0,
+    0.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    4,
+    1
+   ],
+   "anim": "random_frame",
+   "blend": "add",
+   "shader": "Particles/Additive (HDR)",
+   "texture": "res://assets/fx/textures/tracers-1_rot.png",
+   "mode": "stretch",
+   "mesh": null,
+   "length_scale": 0.0,
+   "velocity_scale": 0.0075,
+   "material": "muzzle_embers"
+  },
+  {
+   "name": "ejection_rifle_cartridge",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rot": [
+    0.0,
+    -0.0,
+    0.0,
+    1.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.01,
+   "lifetime": [
+    1.0,
+    1.0
+   ],
+   "speed": [
+    2.0,
+    3.0
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 8.0,
+   "shape": {
+    "type": "point"
+   },
+   "size": [
+    0.6,
+    0.6
+   ],
+   "aspect": 1.0,
+   "gravity": 0.7,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.1,
+   "amount": 1,
+   "explosiveness": 1.0,
+   "color_min": [
+    1.0,
+    1.0,
+    1.0,
+    2.0
+   ],
+   "color_max": [
+    1.0,
+    1.0,
+    1.0,
+    2.0
+   ],
+   "size_curve": null,
+   "color_ramp": null,
+   "angle": [
+    20.0,
+    20.0
+   ],
+   "angular_velocity": [
+    -500.0,
+    415.9
+   ],
+   "tiles": [
+    1,
+    1
+   ],
+   "anim": "none",
+   "blend": "mix",
+   "shader": "Rust/Standard",
+   "texture": null,
+   "mode": "mesh",
+   "mesh": "res://assets/fx/meshes/rifle.glb",
+   "length_scale": 2.0,
+   "velocity_scale": 0.0,
+   "material": "rifle_shell"
+  }
+ ],
+ "lights": []
+}

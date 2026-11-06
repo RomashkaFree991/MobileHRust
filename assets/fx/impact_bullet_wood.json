@@ -1,0 +1,904 @@
+{
+ "name": "impact_bullet_wood",
+ "source": "bundled/prefabs/fx/impacts/bullet/wood/wood1.json",
+ "duration": 1.4,
+ "emitters": [
+  {
+   "name": "dust_mainsmoke ",
+   "pos": [
+    0.0,
+    0.124,
+    0.0
+   ],
+   "rot": [
+    -0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    0.8,
+    1.4
+   ],
+   "speed": [
+    0.5,
+    1.5
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 66.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.01
+   },
+   "size": [
+    0.5,
+    1.3
+   ],
+   "aspect": 1.0,
+   "gravity": 0.05,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 2,
+   "explosiveness": 1.0,
+   "color_min": [
+    0.5588,
+    0.4322,
+    0.2424,
+    0.5685
+   ],
+   "color_max": [
+    1.4852,
+    0.9702,
+    0.5024,
+    0.4275
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.4534
+    ],
+    [
+     1.0,
+     1.0
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     0.2588
+    ],
+    [
+     0.0559,
+     0.9887,
+     0.9887,
+     0.9887,
+     1.0
+    ],
+    [
+     0.6029,
+     0.878,
+     0.878,
+     0.878,
+     0.8706
+    ],
+    [
+     0.9882,
+     0.8,
+     0.8,
+     0.8,
+     0.0259
+    ],
+    [
+     1.0,
+     0.8,
+     0.8,
+     0.8,
+     0.0
+    ]
+   ],
+   "angle": [
+    -180.0,
+    180.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    8,
+    8
+   ],
+   "anim": "over_life",
+   "blend": "mix",
+   "shader": "Particles/VertexLit Blended Custom",
+   "texture": "res://assets/fx/textures/wispy_smoke-1.png",
+   "mode": "billboard",
+   "mesh": null,
+   "length_scale": 2.0,
+   "velocity_scale": 0.0,
+   "material": "pfx_smoke_whispy_1"
+  },
+  {
+   "name": "dust_kickup",
+   "pos": [
+    0.0,
+    0.065,
+    0.0
+   ],
+   "rot": [
+    -0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    0.7,
+    1.2
+   ],
+   "speed": [
+    0.0,
+    0.1
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 12.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.01
+   },
+   "size": [
+    0.3,
+    0.6
+   ],
+   "aspect": 1.0,
+   "gravity": 0.0,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 1,
+   "explosiveness": 1.0,
+   "color_min": [
+    0.7058,
+    0.5458,
+    0.2596,
+    0.5798
+   ],
+   "color_max": [
+    1.2794,
+    0.7154,
+    0.2822,
+    0.4762
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.799
+    ],
+    [
+     0.5581,
+     1.0
+    ],
+    [
+     1.0,
+     0.9671
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.2235,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.8441,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ],
+    [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    0.0,
+    0.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    12,
+    7
+   ],
+   "anim": "over_life",
+   "blend": "mix",
+   "shader": "Particles/VertexLit Blended Custom",
+   "texture": "res://assets/fx/textures/groundhit-2_rot.png",
+   "mode": "stretch",
+   "mesh": null,
+   "length_scale": -1.6,
+   "velocity_scale": -1.0,
+   "material": "groundhit"
+  },
+  {
+   "name": "dust_kickup (1)",
+   "pos": [
+    0.0,
+    0.065,
+    0.0
+   ],
+   "rot": [
+    -0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    0.7,
+    1.2
+   ],
+   "speed": [
+    0.0,
+    0.1
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 12.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.01
+   },
+   "size": [
+    0.3,
+    0.6
+   ],
+   "aspect": 1.0,
+   "gravity": 0.0,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 1,
+   "explosiveness": 1.0,
+   "color_min": [
+    0.7058,
+    0.5458,
+    0.2596,
+    0.5798
+   ],
+   "color_max": [
+    1.2794,
+    0.7154,
+    0.2822,
+    0.4762
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.799
+    ],
+    [
+     0.5581,
+     1.0
+    ],
+    [
+     1.0,
+     0.9671
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.2,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.8206,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ],
+    [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    0.0,
+    0.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    12,
+    7
+   ],
+   "anim": "over_life",
+   "blend": "mix",
+   "shader": "Particles/VertexLit Blended Custom",
+   "texture": "res://assets/fx/textures/groundhit-2_rot.png",
+   "mode": "stretch",
+   "mesh": null,
+   "length_scale": -1.6,
+   "velocity_scale": -1.0,
+   "material": "groundhit"
+  },
+  {
+   "name": "dust_kickup_wide",
+   "pos": [
+    0.0,
+    0.065,
+    0.0
+   ],
+   "rot": [
+    -0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    0.7,
+    1.2
+   ],
+   "speed": [
+    0.0,
+    0.1
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 45.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.01
+   },
+   "size": [
+    0.2,
+    0.45
+   ],
+   "aspect": 1.0,
+   "gravity": 0.0,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 1,
+   "explosiveness": 1.0,
+   "color_min": [
+    0.7058,
+    0.5458,
+    0.2596,
+    0.5581
+   ],
+   "color_max": [
+    1.2794,
+    0.7154,
+    0.2822,
+    0.4275
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.7402
+    ],
+    [
+     0.5581,
+     1.0
+    ],
+    [
+     1.0,
+     0.8886
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.2,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.8206,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ],
+    [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    0.0,
+    0.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    12,
+    7
+   ],
+   "anim": "over_life",
+   "blend": "mix",
+   "shader": "Particles/VertexLit Blended Custom",
+   "texture": "res://assets/fx/textures/groundhit-2_rot.png",
+   "mode": "stretch",
+   "mesh": null,
+   "length_scale": -1.5,
+   "velocity_scale": -1.0,
+   "material": "groundhit"
+  },
+  {
+   "name": "dust_kickup_wide (1)",
+   "pos": [
+    0.0,
+    0.065,
+    0.0
+   ],
+   "rot": [
+    -0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    0.7,
+    1.2
+   ],
+   "speed": [
+    0.0,
+    0.1
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 45.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.01
+   },
+   "size": [
+    0.2,
+    0.45
+   ],
+   "aspect": 1.0,
+   "gravity": 0.0,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 1,
+   "explosiveness": 1.0,
+   "color_min": [
+    0.7058,
+    0.5458,
+    0.2596,
+    0.5581
+   ],
+   "color_max": [
+    1.2794,
+    0.7154,
+    0.2822,
+    0.4275
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.7402
+    ],
+    [
+     0.5581,
+     1.0
+    ],
+    [
+     1.0,
+     0.8886
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.2,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.8206,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ],
+    [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    0.0,
+    0.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    12,
+    7
+   ],
+   "anim": "over_life",
+   "blend": "mix",
+   "shader": "Particles/VertexLit Blended Custom",
+   "texture": "res://assets/fx/textures/groundhit-2_rot.png",
+   "mode": "stretch",
+   "mesh": null,
+   "length_scale": -1.5,
+   "velocity_scale": -1.0,
+   "material": "groundhit"
+  },
+  {
+   "name": "dust_mainsmoke2",
+   "pos": [
+    0.0,
+    0.343,
+    -0.0
+   ],
+   "rot": [
+    -0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    1.1,
+    1.4
+   ],
+   "speed": [
+    1.5,
+    3.0
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 15.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.01
+   },
+   "size": [
+    0.6,
+    1.3
+   ],
+   "aspect": 1.0,
+   "gravity": 0.15,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 1,
+   "explosiveness": 1.0,
+   "color_min": [
+    0.5588,
+    0.4322,
+    0.2424,
+    0.5685
+   ],
+   "color_max": [
+    1.4852,
+    0.9702,
+    0.5024,
+    0.4275
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.4534
+    ],
+    [
+     1.0,
+     1.0
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     0.2588
+    ],
+    [
+     0.4206,
+     0.9149,
+     0.9149,
+     0.9149,
+     1.0
+    ],
+    [
+     0.6029,
+     0.878,
+     0.878,
+     0.878,
+     0.8706
+    ],
+    [
+     0.9882,
+     0.8,
+     0.8,
+     0.8,
+     0.0259
+    ],
+    [
+     1.0,
+     0.8,
+     0.8,
+     0.8,
+     0.0
+    ]
+   ],
+   "angle": [
+    -180.0,
+    180.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    8,
+    8
+   ],
+   "anim": "over_life",
+   "blend": "mix",
+   "shader": "Particles/VertexLit Blended Custom",
+   "texture": "res://assets/fx/textures/wispy_smoke-2.png",
+   "mode": "billboard",
+   "mesh": null,
+   "length_scale": 2.0,
+   "velocity_scale": 0.0,
+   "material": "pfx_smoke_whispy_2"
+  },
+  {
+   "name": "wood_particles",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rot": [
+    -0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    1.0,
+    1.4
+   ],
+   "speed": [
+    1.3111,
+    3.3111
+   ],
+   "direction": [
+    0.0,
+    -0.0016,
+    1.0
+   ],
+   "spread": 45.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.05
+   },
+   "size": [
+    0.03,
+    0.08
+   ],
+   "aspect": 1.0,
+   "gravity": 0.8,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 6,
+   "explosiveness": 0.857,
+   "color_min": [
+    1.25,
+    1.0726,
+    0.8824,
+    0.8706
+   ],
+   "color_max": [
+    2.0,
+    2.0,
+    2.0,
+    0.8706
+   ],
+   "size_curve": null,
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.7147,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    -360.0,
+    360.0
+   ],
+   "angular_velocity": [
+    211.0,
+    455.0
+   ],
+   "tiles": [
+    3,
+    3
+   ],
+   "anim": "over_life",
+   "blend": "mix",
+   "shader": "Rust/Standard Particle",
+   "texture": "res://assets/fx/textures/flecks_wood.png",
+   "mode": "billboard",
+   "mesh": null,
+   "length_scale": 2.0,
+   "velocity_scale": 0.0,
+   "material": "flecks_wood"
+  }
+ ],
+ "lights": []
+}

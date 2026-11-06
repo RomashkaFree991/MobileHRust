@@ -1,0 +1,251 @@
+{
+ "name": "impact_blunt_dirt",
+ "source": "bundled/prefabs/fx/impacts/blunt/dirt/dirt1.json",
+ "duration": 1.5,
+ "emitters": [
+  {
+   "name": "dirt_smokepuff",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rot": [
+    -0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    0.8,
+    1.4
+   ],
+   "speed": [
+    1.1,
+    2.0
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 35.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.01
+   },
+   "size": [
+    0.8,
+    1.4
+   ],
+   "aspect": 1.0,
+   "gravity": 0.05,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 2,
+   "explosiveness": 1.0,
+   "color_min": [
+    0.6324,
+    0.4558,
+    0.2324,
+    0.585
+   ],
+   "color_max": [
+    0.6324,
+    0.4558,
+    0.2324,
+    0.3404
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.4534
+    ],
+    [
+     1.0,
+     1.0
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     0.2588
+    ],
+    [
+     0.0559,
+     0.9887,
+     0.9887,
+     0.9887,
+     1.0
+    ],
+    [
+     0.6029,
+     0.878,
+     0.878,
+     0.878,
+     0.8706
+    ],
+    [
+     0.9882,
+     0.8,
+     0.8,
+     0.8,
+     0.0259
+    ],
+    [
+     1.0,
+     0.8,
+     0.8,
+     0.8,
+     0.0
+    ]
+   ],
+   "angle": [
+    -180.0,
+    180.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    8,
+    8
+   ],
+   "anim": "over_life",
+   "blend": "mix",
+   "shader": "Particles/VertexLit Blended Custom",
+   "texture": "res://assets/fx/textures/wispy_smoke-1.png",
+   "mode": "billboard",
+   "mesh": null,
+   "length_scale": 2.0,
+   "velocity_scale": 0.0,
+   "material": "pfx_smoke_whispy_1"
+  },
+  {
+   "name": "rock_particles_small",
+   "pos": [
+    0.0,
+    0.048,
+    -0.0
+   ],
+   "rot": [
+    -0.707107,
+    0.0,
+    0.0,
+    0.707107
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.0,
+   "lifetime": [
+    1.0,
+    1.5
+   ],
+   "speed": [
+    0.7,
+    2.5
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 35.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.05
+   },
+   "size": [
+    0.04,
+    0.06
+   ],
+   "aspect": 1.0,
+   "gravity": 0.8,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 18,
+   "explosiveness": 1.0,
+   "color_min": [
+    0.2682,
+    0.1854,
+    0.0611,
+    1.0
+   ],
+   "color_max": [
+    0.3336,
+    0.2436,
+    0.1472,
+    1.0
+   ],
+   "size_curve": null,
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.8765,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    -30.0,
+    30.0
+   ],
+   "angular_velocity": [
+    -333.0,
+    333.0
+   ],
+   "tiles": [
+    2,
+    1
+   ],
+   "anim": "over_life",
+   "blend": "mix",
+   "shader": "Particles/VertexLit Blended Custom",
+   "texture": "res://assets/fx/textures/shrapnel_concrete.png",
+   "mode": "billboard",
+   "mesh": null,
+   "length_scale": 2.0,
+   "velocity_scale": 0.0,
+   "material": "shrapnel_dirt"
+  }
+ ],
+ "lights": []
+}

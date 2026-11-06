@@ -1,0 +1,222 @@
+{
+ "name": "eject_pistol",
+ "source": "prefabs/weapons/semi auto pistol/effects/eject_pistol_shell.json",
+ "duration": 1.05,
+ "emitters": [
+  {
+   "name": "ejection_fumes",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rot": [
+    -0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": true,
+   "delay": 0.025,
+   "lifetime": [
+    0.15,
+    0.3
+   ],
+   "speed": [
+    0.05,
+    0.15
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 20.0,
+   "shape": {
+    "type": "sphere",
+    "radius": 0.005
+   },
+   "size": [
+    0.03,
+    0.08
+   ],
+   "aspect": 1.0,
+   "gravity": 0.0,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.0,
+   "amount": 6,
+   "explosiveness": 1.0,
+   "color_min": [
+    1.0,
+    1.0,
+    1.0,
+    0.0628
+   ],
+   "color_max": [
+    1.0,
+    1.0,
+    1.0,
+    0.1412
+   ],
+   "size_curve": [
+    [
+     0.0,
+     0.2977
+    ],
+    [
+     0.1081,
+     0.7287
+    ],
+    [
+     0.1611,
+     0.803
+    ],
+    [
+     1.0,
+     0.6183
+    ]
+   ],
+   "color_ramp": [
+    [
+     0.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     0.1748,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     0.0
+    ]
+   ],
+   "angle": [
+    -180.0,
+    0.0
+   ],
+   "angular_velocity": [
+    0,
+    0
+   ],
+   "tiles": [
+    6,
+    6
+   ],
+   "anim": "over_life",
+   "blend": "mix",
+   "shader": "Particles/VertexLit Blended Custom",
+   "texture": "res://assets/fx/textures/puff-2_rot.png",
+   "mode": "stretch",
+   "mesh": null,
+   "length_scale": -1.75,
+   "velocity_scale": 0.0,
+   "material": "muzzle_fumes"
+  },
+  {
+   "name": "ejection_pistolshells",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "rot": [
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "scale": [
+    1.0,
+    1.0,
+    1.0
+   ],
+   "local": false,
+   "delay": 0.05,
+   "lifetime": [
+    1.0,
+    1.0
+   ],
+   "speed": [
+    1.8,
+    2.4
+   ],
+   "direction": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "spread": 9.0,
+   "shape": {
+    "type": "point"
+   },
+   "size": [
+    1.2,
+    1.2
+   ],
+   "aspect": 1.0,
+   "gravity": 0.8,
+   "force": [
+    0,
+    0,
+    0
+   ],
+   "drag": 0.35,
+   "amount": 1,
+   "explosiveness": 1.0,
+   "color_min": [
+    0.9559,
+    0.9559,
+    0.9559,
+    1.0
+   ],
+   "color_max": [
+    0.9559,
+    0.9559,
+    0.9559,
+    1.0
+   ],
+   "size_curve": null,
+   "color_ramp": null,
+   "angle": [
+    0.0,
+    0.0
+   ],
+   "angular_velocity": [
+    -250.0,
+    -33.95
+   ],
+   "tiles": [
+    1,
+    1
+   ],
+   "anim": "none",
+   "blend": "mix",
+   "shader": "Rust/Standard",
+   "texture": null,
+   "mode": "mesh",
+   "mesh": "res://assets/fx/meshes/pistol.glb",
+   "length_scale": 2.0,
+   "velocity_scale": 0.0,
+   "material": "pistol_shell"
+  }
+ ],
+ "lights": []
+}

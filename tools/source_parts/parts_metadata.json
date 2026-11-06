@@ -1,0 +1,382 @@
+{
+  "7997367388466599223": {
+    "name": "MaleUnderwear_Pants_LOD0",
+    "renderer": -9147075850006475624,
+    "bones": [
+      "l_hip",
+      "pelvis",
+      "penis",
+      "spine2",
+      "spine1",
+      "r_hip"
+    ],
+    "materials": [
+      [
+        -1682175822698124268,
+        "Default-Material"
+      ]
+    ]
+  },
+  "-7161549116660444019": {
+    "name": "Head.OuterEyes_LOD0",
+    "renderer": -9021402984151509977,
+    "bones": [
+      "l_eye",
+      "r_eye"
+    ],
+    "materials": [
+      [
+        -8610888692372483319,
+        "Eyes_Clear"
+      ]
+    ]
+  },
+  "6608249783596678305": {
+    "name": "Head.Male.Light01_LOD0",
+    "renderer": -8605783655857227482,
+    "bones": [
+      "head",
+      "r_Eyelid",
+      "jaw",
+      "neck",
+      "spine3",
+      "spine4",
+      "r_clavicle",
+      "spine2",
+      "l_clavicle",
+      "l_Eyelid",
+      "r_upperarm"
+    ],
+    "materials": [
+      [
+        -1011346539575668837,
+        "MaleHead.LightSkin_00"
+      ]
+    ]
+  },
+  "-3599527659166572884": {
+    "name": "Head.Teeth_LOD0",
+    "renderer": -8033777748265597672,
+    "bones": [
+      "head",
+      "jaw"
+    ],
+    "materials": [
+      [
+        -1682175822698124268,
+        "Default-Material"
+      ]
+    ]
+  },
+  "-7060186683444779785": {
+    "name": "MaleUnderwear_Legs_LOD0",
+    "renderer": -7854260924448856125,
+    "bones": [
+      "pelvis",
+      "r_hip",
+      "spine1",
+      "spine2",
+      "l_hip",
+      "r_knee",
+      "l_knee",
+      "penis"
+    ],
+    "materials": [
+      [
+        7186383423733735917,
+        "MaleBody.Light_00"
+      ]
+    ]
+  },
+  "-5186721340678572412": {
+    "name": "MaleHead_LOD0",
+    "renderer": -7554500205283490423,
+    "bones": [
+      "head",
+      "r_Eyelid",
+      "jaw",
+      "neck",
+      "spine3",
+      "spine4",
+      "r_clavicle",
+      "spine2",
+      "l_clavicle",
+      "l_Eyelid",
+      "r_upperarm"
+    ],
+    "materials": [
+      [
+        -1682175822698124268,
+        "Default-Material"
+      ]
+    ]
+  },
+  "-4233192497991301587": {
+    "name": "Head.Eyes_LOD0",
+    "renderer": -6680151983695847053,
+    "bones": [
+      "l_eye",
+      "r_eye"
+    ],
+    "materials": [
+      [
+        -2051988417778645837,
+        "Eyes.LightSkin"
+      ]
+    ]
+  },
+  "-7181644247856813664": {
+    "name": "MaleUnderwear_Legs_LOD0",
+    "renderer": -6090559701725513045,
+    "bones": [
+      "l_hip",
+      "r_hip",
+      "r_knee",
+      "l_knee"
+    ],
+    "materials": [
+      [
+        7186383423733735917,
+        "MaleBody.Light_00"
+      ]
+    ]
+  },
+  "2900878314152527974": {
+    "name": "Hands.00_LOD00",
+    "renderer": -5825245986342182543,
+    "bones": [
+      "l_hand",
+      "l_ulna",
+      "l_forearm",
+      "l_thumb1",
+      "l_thumb2",
+      "l_little1",
+      "l_ring1",
+      "l_middle1",
+      "l_index1",
+      "r_hand",
+      "r_ulna",
+      "r_forearm",
+      "r_little1",
+      "r_thumb1",
+      "r_thumb2",
+      "r_ring1",
+      "r_middle1",
+      "r_index1",
+      "r_thumb3",
+      "l_index2",
+      "l_ring2",
+      "l_thumb3",
+      "l_index3",
+      "l_little2",
+      "l_little3",
+      "l_ring3",
+      "l_middle2",
+      "l_middle3",
+      "r_index2",
+      "r_ring2",
+      "r_index3",
+      "r_little2",
+      "r_little3",
+      "r_ring3",
+      "r_middle2",
+      "r_middle3"
+    ],
+    "materials": [
+      [
+        -2193634185864503307,
+        "MaleBody.Dark_00"
+      ]
+    ]
+  },
+  "1542740195783385851": {
+    "name": "Torso.00_LOD00",
+    "renderer": -5774380006825749455,
+    "bones": [
+      "l_clavicle",
+      "neck",
+      "spine2",
+      "spine3",
+      "spine4",
+      "head",
+      "spine1",
+      "pelvis",
+      "l_upperarm",
+      "r_clavicle",
+      "r_upperarm",
+      "l_forearm",
+      "l_hip",
+      "r_hip",
+      "r_forearm",
+      "penis",
+      "l_ulna",
+      "l_hand",
+      "r_ulna",
+      "r_hand"
+    ],
+    "materials": [
+      [
+        7186383423733735917,
+        "MaleBody.Light_00"
+      ]
+    ]
+  },
+  "8764041787850887886": {
+    "name": "Hands.00_LOD00",
+    "renderer": -5438276413445784077,
+    "bones": [
+      "l_hand",
+      "l_ulna",
+      "l_forearm",
+      "l_thumb1",
+      "l_thumb2",
+      "r_hand",
+      "r_ulna",
+      "r_forearm",
+      "r_thumb1",
+      "r_thumb2",
+      "l_index1",
+      "l_index2",
+      "l_thumb3",
+      "l_index3",
+      "l_ring1",
+      "l_little1",
+      "l_little2",
+      "l_ring2",
+      "l_ring3",
+      "l_middle1",
+      "l_middle2",
+      "l_middle3",
+      "l_little3",
+      "r_index1",
+      "r_index2",
+      "r_middle1",
+      "r_thumb3",
+      "r_little1",
+      "r_little2",
+      "r_ring1",
+      "r_ring2",
+      "r_ring3",
+      "r_middle2",
+      "r_middle3",
+      "r_index3",
+      "r_little3"
+    ],
+    "materials": [
+      [
+        -1682175822698124268,
+        "Default-Material"
+      ]
+    ]
+  },
+  "-7370544997436328256": {
+    "name": "Feet.00_LOD00",
+    "renderer": -3579624207481409053,
+    "bones": [
+      "r_foot",
+      "r_knee",
+      "l_foot",
+      "l_knee",
+      "l_toe",
+      "r_toe"
+    ],
+    "materials": [
+      [
+        7186383423733735917,
+        "MaleBody.Light_00"
+      ]
+    ]
+  },
+  "122022401606826498": {
+    "name": "Torso.00_LOD00",
+    "renderer": -3538036725066892727,
+    "bones": [
+      "l_clavicle",
+      "l_upperarm",
+      "spine4",
+      "l_forearm",
+      "r_clavicle",
+      "r_upperarm",
+      "r_forearm",
+      "l_ulna",
+      "r_ulna"
+    ],
+    "materials": [
+      [
+        7186383423733735917,
+        "MaleBody.Light_00"
+      ]
+    ]
+  },
+  "-5289388053386206590": {
+    "name": "MaleUnderwear_Legs_LOD0",
+    "renderer": -879145179747041067,
+    "bones": [
+      "l_hip",
+      "r_hip",
+      "r_knee",
+      "l_knee",
+      "pelvis"
+    ],
+    "materials": [
+      [
+        7186383423733735917,
+        "MaleBody.Light_00"
+      ]
+    ]
+  },
+  "7691975639518107593": {
+    "name": "Legs.00_LOD00",
+    "renderer": 1237168272104948091,
+    "bones": [
+      "l_hip",
+      "r_hip",
+      "r_knee",
+      "l_knee"
+    ],
+    "materials": [
+      [
+        7186383423733735917,
+        "MaleBody.Light_00"
+      ]
+    ]
+  },
+  "-2118884754678894490": {
+    "name": "Legs.00_LOD00",
+    "renderer": 1347026036488764156,
+    "bones": [
+      "l_hip",
+      "r_hip",
+      "r_knee",
+      "l_knee"
+    ],
+    "materials": [
+      [
+        -1682175822698124268,
+        "Default-Material"
+      ]
+    ]
+  },
+  "8759223269618763038": {
+    "name": "Legs.00_LOD00",
+    "renderer": 1415333565930901713,
+    "bones": [
+      "pelvis",
+      "r_hip",
+      "spine1",
+      "spine2",
+      "l_hip",
+      "penis",
+      "r_knee",
+      "r_foot",
+      "l_knee",
+      "l_foot"
+    ],
+    "materials": [
+      [
+        -2193634185864503307,
+        "MaleBody.Dark_00"
+      ]
+    ]
+  }
+}
