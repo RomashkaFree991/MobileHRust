@@ -1,0 +1,1 @@
+You can create a game using assets from *Rust*, provided it is strictly for your own personal use and not made publicly available. The assets must remain in your possession only. You are permitted to extract assets from *Rust* and incorporate them into your own project, as long as it remains for your private use.
